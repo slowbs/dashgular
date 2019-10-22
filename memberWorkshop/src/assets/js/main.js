@@ -1,6 +1,6 @@
 "use strick";
 var App = {
-	initialLoadPage() {
+	initialLoadPage: function() {
 		var treeviewMenu = $('.app-menu');
 
 		// Toggle Sidebar
