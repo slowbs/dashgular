@@ -8,11 +8,13 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { BootstrapElementsComponent } from './components/bootstrap-elements/bootstrap-elements.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { WidgetsComponent } from './components/widgets/widgets.component';
+import { MembersComponent } from './components/members/members.component';
+import { MemberCreateComponent } from './components/member-create/member-create.component';
 
 
 
 @NgModule({
-  declarations: [DashboardComponent, SettingComponent, ProfileComponent, BootstrapElementsComponent, CardsComponent, WidgetsComponent],
+  declarations: [DashboardComponent, SettingComponent, ProfileComponent, BootstrapElementsComponent, CardsComponent, WidgetsComponent, MembersComponent, MemberCreateComponent],
   imports: [
     CommonModule,
     AuthenticationRoutingModule,
