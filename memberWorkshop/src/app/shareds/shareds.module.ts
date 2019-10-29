@@ -5,6 +5,7 @@ import { AuthNavbarComponent } from './components/auth-navbar/auth-navbar.compon
 import { AuthSidebarComponent } from './components/auth-sidebar/auth-sidebar.component';
 import { AuthContentComponent } from './components/auth-content/auth-content.component';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 
@@ -12,7 +13,9 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     BsDropdownModule.forRoot(),
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   declarations: [
 
@@ -25,7 +28,9 @@ import { RouterModule } from '@angular/router';
     BsDropdownModule,
     AuthNavbarComponent,
     AuthSidebarComponent,
-    AuthContentComponent
+    AuthContentComponent,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class SharedsModule { }
