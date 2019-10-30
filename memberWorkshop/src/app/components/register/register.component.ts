@@ -40,6 +40,9 @@ export class RegisterComponent implements IRegisterComponent {
       username: ['', [Validators.required]],
       firstname: ['', [Validators.required]],
       lastname: ['', [Validators.required]],
+      // email: ['', [Validators.required, Validators.email]],
+      // password: ['', [Validators.required, Validators.pattern(/^[A-z0-9]{6,15}$/)]],
+      email: ['', [Validators.required]],
       password: ['', [Validators.required]],
       cpassword: ['', [Validators.required, this.comparePassword('password')]]
     });
