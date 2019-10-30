@@ -7,6 +7,7 @@ import { AuthContentComponent } from './components/auth-content/auth-content.com
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { alertService } from './services/alert.service';
+import { AccountService } from './services/account.service';
 
 
 
@@ -35,7 +36,8 @@ import { alertService } from './services/alert.service';
   ],
 
   providers: [
-    alertService
+    alertService,
+    AccountService
   ]
 })
 export class SharedsModule { }

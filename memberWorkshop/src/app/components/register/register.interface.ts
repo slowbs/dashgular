@@ -6,3 +6,12 @@ export interface IRegisterComponent {
     onSubmit();
 
 }
+
+export interface IRegister {
+    username: string;
+    firstname: string;
+    lastname: string;
+    email: string;
+    password: string;
+    cpassword: string;
+}

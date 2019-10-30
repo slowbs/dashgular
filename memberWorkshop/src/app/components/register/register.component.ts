@@ -3,6 +3,8 @@ import { AppURL } from '../../app.url';
 import { IRegisterComponent } from './register.interface';
 import { FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { alertService } from 'src/app/shareds/services/alert.service';
+import { AccountService } from 'src/app/shareds/services/account.service';
+import { RouterLink, Router } from '@angular/router';
 declare let $;
 
 @Component({
@@ -14,7 +16,9 @@ export class RegisterComponent implements IRegisterComponent {
 
   constructor(
     private builder: FormBuilder,
-    private alert: alertService
+    private alert: alertService,
+    private account: AccountService,
+    private router: Router
   ) {
     this.initialCreateFormData();
   }
@@ -31,7 +35,14 @@ export class RegisterComponent implements IRegisterComponent {
       return this.alert.something_wrong();
     }
     // return alert('ข้อมูลบางย่างไม่ถูกต้อง กรุณาลอกอีกครั้ง');
-    console.log(this.form.value);
+    // console.log(this.form.value);
+    this.account.onRegister(this.form.value)
+    //.then(res => console.log(res))
+    .then(res => {
+      this.alert.notify('ลงทะเบียนสำเร็จ', 'info')
+      this.router.navigate(['/', AppURL.Login])
+    })
+    .catch(err => this.alert.notify(err.Message));
   }
 
   // สร้างฟอร์ม
