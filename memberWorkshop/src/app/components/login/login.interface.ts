@@ -6,3 +6,9 @@ export interface ILoginComponent {
     onSubmit(): void;
 
 }
+
+export interface ILogin {
+    username: string,
+    password: string,
+    remember: boolean
+}
