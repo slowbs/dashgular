@@ -8,7 +8,7 @@ export class alertService {
         $.notify({
             // options
             icon: 'glyphicon glyphicon-warning-sign',
-            title: 'แจ้งเตือนจากระบบ : ',
+            title: 'แจ้งเตือน : ',
             message: message
             //message: 'Turning standard Bootstrap alerts into "notify" like notifications',
             // url: 'https://github.com/mouse0270/bootstrap-notify',
@@ -54,7 +54,7 @@ export class alertService {
         });
     }
 
-    something_wrong(message: string='ข้อมูลบางย่างไม่ถูกต้อง กรุณาลอกอีกครั้ง'){
+    something_wrong(message: string='ข้อมูลบางอย่างไม่ถูกต้อง กรุณาลอกอีกครั้ง'){
         this.notify(message);
     }
 

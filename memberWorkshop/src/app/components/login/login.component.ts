@@ -32,8 +32,9 @@ export class LoginComponent implements ILoginComponent {
             return this.alert.something_wrong();
         this.account.onLogin(this.form.value)
         .then(res => {
-            console.log(res)
-            //this.router.navigate(['/', AppURL.Authen, AuthURL.Dashboard])
+            // console.log(res)
+            this.alert.notify('เข้าสู่ระบบสำเร็จ', 'info')
+            this.router.navigate(['/', AppURL.Authen, AuthURL.Dashboard])
         })
         .catch(err => this.alert.notify(err.Message));
         //console.log(this.form.value)
