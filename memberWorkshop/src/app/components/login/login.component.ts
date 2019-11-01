@@ -33,9 +33,9 @@ export class LoginComponent implements ILoginComponent {
         this.account.onLogin(this.form.value)
         .then(res => {
             console.log(res)
+            //this.router.navigate(['/', AppURL.Authen, AuthURL.Dashboard])
         })
         .catch(err => this.alert.notify(err.Message));
-        //this.router.navigate(['/', AppURL.Authen, AuthURL.Dashboard])
         //console.log(this.form.value)
     }
     void: any;
