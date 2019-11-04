@@ -6,6 +6,7 @@ import { alertService } from 'src/app/shareds/services/alert.service';
 import { Router } from '@angular/router';
 import { AuthURL } from 'src/app/authentication/authentication.url';
 import { AccountService } from 'src/app/shareds/services/account.service';
+import { AuthenService } from 'src/app/services/authen.service';
 
 @Component({
     selector: 'app-login',
@@ -17,9 +18,12 @@ export class LoginComponent implements ILoginComponent {
         private builder: FormBuilder,
         private alert: alertService,
         private router: Router,
-        private account: AccountService
+        private account: AccountService,
+        private authen: AuthenService
     ) {
         this.initialCreateFormData();
+        // console.log(this.authen);
+        // console.log(this.authen.getAuthenticated());
     }
 
     Url = AppURL;
@@ -32,7 +36,10 @@ export class LoginComponent implements ILoginComponent {
             return this.alert.something_wrong();
         this.account.onLogin(this.form.value)
         .then(res => {
+            /** เก็บ Session */
+            this.authen.setAuthenticated(res.accessToken)
             // console.log(res)
+            /** Alert และ Redirect */
             this.alert.notify('เข้าสู่ระบบสำเร็จ', 'info')
             this.router.navigate(['/', AppURL.Authen, AuthURL.Dashboard])
         })

@@ -22,7 +22,7 @@ export class AccountService {
 
     onLogin(model: ILogin) {
         //console.log(model)
-        return new Promise((resolve, reject) => {
+        return new Promise<{ accessToken:string }>((resolve, reject) => {
             // resolve(model);
             // const userLogin = this.mockUserItem.filter(item => item.username == model.username && item.password == model.password)
             // // console.log(userLogin)
@@ -30,7 +30,11 @@ export class AccountService {
             const userLogin = this.mockUserItem.find(item => item.username == model.username && item.password == model.password)
             // console.log(userLogin)
             if (!userLogin) return reject({Message:'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง'})
-            resolve(userLogin)
+            // resolve(userLogin)
+            //console.log(userLogin);
+            resolve({
+                accessToken: userLogin.id
+            })
         })
     }
 
